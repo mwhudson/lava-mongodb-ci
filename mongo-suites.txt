@@ -1,0 +1,29 @@
+aggregation             aggregation
+aggregation_auth        --auth aggregation
+auth                    auth
+core                    test
+disk                    disk
+durability              dur
+failpoints              failPoint
+failpoints_auth         --auth failPoint
+gle_auth                --auth gle
+gle_auth_write_cmd      --auth --shell-write-mode commands gle
+jsCore                  --shell-write-mode commands jsCore
+jsCore_auth             --shell-write-mode commands --auth jsCore
+jsCore_compatibility    --shell-write-mode compatibility jsCore
+jsCore_small_oplog      --shell-write-mode commands --small-oplog jsCore
+mongosTest              mongosTest
+mongosTest_auth         --auth mongosTest
+noPassthrough           noPassthrough
+noPassthroughWithMongod noPassthroughWithMongod
+parallel                parallel
+parallel_compatibility  --shell-write-mode compatibility parallel
+replicasets             replSets
+replicasets_auth        --auth replSets
+replication             repl
+replication_auth        --auth repl
+sharding                sharding
+sharding_auth           --auth sharding
+slow1                   slow1
+slow2                   slow2
+tool                    tool
