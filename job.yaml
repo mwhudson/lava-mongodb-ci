@@ -1,6 +1,6 @@
 device_type: mustang
 job_name: mwhudson-mongodb-ci
-timeout: 3600
+timeout: 36000
 
 actions:
 
@@ -70,7 +70,7 @@ actions:
     parameters:
       testdef_repos:
         - git-repo: http://git.linaro.org/git-ro/people/michael.hudson-doyle/lava-mongodb-ci.git
-      timeout: 30000
+      timeout: 72000
 
   - command: submit_results
     parameters:
