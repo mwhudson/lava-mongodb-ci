@@ -19,6 +19,7 @@ install:
 
 run:
   steps:
+    - "set +e"
     - "set -x"
     - "resolvconf -u"
     - "apt-get install -y build-essential scons"
