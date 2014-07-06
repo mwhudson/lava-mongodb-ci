@@ -26,14 +26,18 @@ run:
     - "cd mongo"
     - "scons --allocator=system --js-engine=v8-3.25 $SCONS -j 8 all > build-log.txt 2>&1"
     - "[ $? -eq 0 ] && r=pass || r=fail"
-    - "lava-test-case build --result $r"
+    - 'mytc () { printf "TEST@%s@ RESULT@%s@\n" $1 $2; }'
+    - "mytc build $r"
     - "lava-test-case-attach build build-log.txt"
     - "mkdir /data"
     - "exec 3<../mongo-suites.txt"
     - "while read -u 3 name line; do"
     - "    time buildscripts/smoke.py --continue-on-failure --with-cleanbb --report-file report-$name.json $line > smoke-$name.txt 2>&1"
     - "    [ $? -eq 0 ] && r=pass || r=fail"
-    - "    lava-test-case $name --result $r"
+    - "    mytc $name --result $r"
     - "    lava-test-case-attach $name report-$name.json"
     - "    lava-test-case-attach $name smoke-$name.txt"
     - "done"
+
+parse:
+  pattern: "TEST@(?P<test_case_id>[-0-9A-Za-z_.]+)@ RESULT@(?P<result>[-0-9A-Za-z_.]+)@"
