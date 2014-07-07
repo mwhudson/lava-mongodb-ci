@@ -22,6 +22,7 @@ run:
     - "set +e"
     - "set -x"
     - "resolvconf -u"
+    - "echo 127.0.0.1 $(hostname) >> /etc/hosts"
     - "apt-get update"
     - "apt-get install -y build-essential scons python-pymongo"
     - "cp -a mongo mongo-suites.txt /opt"
